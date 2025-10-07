@@ -134,3 +134,22 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# Testes simples (executados apenas se o arquivo for importado como módulo)
+def test_bank_account():
+    """
+    Executa testes automáticos na classe BankAccount.
+    Simula depósitos, saques e operações inválidas, exibindo saldo e histórico.
+    """
+    acc = BankAccount()
+    acc.deposit(100)
+    acc.withdraw(30)
+    acc.withdraw(100)  # Deve falhar
+    acc.deposit(-10)   # Deve falhar
+    print("Saldo final:", acc.get_balance())
+    print("Histórico:")
+    for t in acc.get_transactions():
+        print(t)
+
+# Para rodar os testes automáticos, descomente a linha abaixo:
+# test_bank_account()
