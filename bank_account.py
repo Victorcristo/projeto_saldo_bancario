@@ -73,3 +73,16 @@ class BankAccount:
         })
         print(f"Saque de R$ {amount:.2f} realizado com sucesso.")
         return True
+    
+    def get_balance(self) -> float:
+        """
+        Retorna o saldo atual da conta.
+        """
+        return self.balance
+
+    def get_transactions(self) -> List[Dict]:
+        """
+        Retorna o histórico de transações da conta.
+        :return: Lista de dicionários com as transações
+        """
+        return self.transactions
