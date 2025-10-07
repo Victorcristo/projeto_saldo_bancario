@@ -14,3 +14,27 @@ class BankAccount:
         self.balance: float = 0.0
         # Lista de dicionários para armazenar o histórico de transações
         self.transactions: List[Dict] = []
+        
+    def deposit(self, amount: float) -> None:
+        """
+        Realiza um depósito na conta.
+        :param amount: Valor a ser depositado (deve ser positivo)
+        """
+        if amount <= 0:
+            # Não permite depósito de valores não positivos
+            self.transactions.append({
+                "type": "credit",
+                "amount": amount,
+                "status": "failed",
+                "balance_after": self.balance
+            })
+            print("Valor de depósito deve ser positivo.")
+            return
+        self.balance += amount
+        self.transactions.append({
+            "type": "credit",
+            "amount": amount,
+            "status": "success",
+            "balance_after": self.balance
+        })
+        print(f"Depósito de R$ {amount:.2f} realizado com sucesso.")
