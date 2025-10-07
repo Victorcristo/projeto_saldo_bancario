@@ -152,4 +152,4 @@ def test_bank_account():
         print(t)
 
 # Para rodar os testes automáticos, descomente a linha abaixo:
-# test_bank_account()
+test_bank_account()
