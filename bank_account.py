@@ -86,3 +86,51 @@ class BankAccount:
         :return: Lista de dicionários com as transações
         """
         return self.transactions
+    
+
+def main():
+    """
+    Função principal do sistema bancário.
+    Cria uma conta, exibe o menu e processa as escolhas do usuário.
+    """
+    account = BankAccount()
+    while True:
+        print("\n--- Sistema Bancário ---")
+        print("1. Depositar")
+        print("2. Sacar")
+        print("3. Consultar saldo")
+        print("4. Ver histórico de transações")
+        print("5. Sair")
+        choice = input("Escolha uma opção: ")
+        if choice == '1':
+            try:
+                amount = float(input("Digite o valor para depósito: "))
+                account.deposit(amount)
+            except ValueError:
+                print("Valor inválido. Digite um número.")
+        elif choice == '2':
+            try:
+                amount = float(input("Digite o valor para saque: "))
+                account.withdraw(amount)
+            except ValueError:
+                print("Valor inválido. Digite um número.")
+        elif choice == '3':
+            print(f"Saldo atual: R$ {account.get_balance():.2f}")
+        elif choice == '4':
+            print("\nHistórico de transações:")
+            trans = account.get_transactions()
+            if not trans:
+                print("Nenhuma transação registrada.")
+            else:
+                print(f"{'Nº':<3} {'Tipo':<8} {'Valor':<10} {'Status':<8} {'Saldo após':<12}")
+                print("-" * 45)
+                for idx, t in enumerate(trans, 1):
+                    print(f"{idx:<3} {t['type']:<8} R$ {t['amount']:<8.2f} {t['status']:<8} R$ {t['balance_after']:<10.2f}")
+        elif choice == '5':
+            print("Saindo do sistema. Até logo!")
+            break
+        else:
+            print("Opção inválida. Tente novamente.")
+
+if __name__ == "__main__":
+    main()
