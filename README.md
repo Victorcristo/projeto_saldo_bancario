@@ -62,4 +62,9 @@ Nº  Tipo     Valor      Status   Saldo após
 ## Testes automáticos
 O arquivo inclui uma função de teste simples (`test_bank_account`) que pode ser executada para validar o funcionamento da classe `BankAccount`. Basta descomentar a linha correspondente no final do arquivo para rodar os testes.
 
+## Contato
+Fique à vontade para entrar em contato para sugestões, dúvidas ou oportunidades:
+- [Seu LinkedIn](https://www.linkedin.com/in/victor-cristo/)
+- [Seu Email](mailto:victor.alencar.oliveira@outlook.com)
+
 ---
